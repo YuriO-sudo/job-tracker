@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/pages/Home'
+import NewProject from './components/pages/NewProject'
+import Container from './components/layout/Container';
+import Navbar from './components/layout/Navbar';
+import Projects from './components/pages/Projects';
+import Project from './components/pages/Project';
+import Estatisticas from './components/Estatisticas';
+import { useEffect, useState } from 'react';
 
 function App() {
+  
+const [versao, setVersao] = useState(0);
+
+// depois de criar/excluir uma vaga:
+
+useEffect(() => {
+  setVersao((v) => v + 1);
+    }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar/>
+      <Container customClass="min_height">
+
+      {/* <Estatisticas/> */}
+
+    <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route  path="/projects" element={<Projects />} />
+      <Route  path="/estatisticas" element={<Estatisticas key={versao}/>} />
+      <Route  path="/newproject" element={<NewProject />} />
+      <Route  path="/project/:id" element={<Project />} />
+    </Routes>
+
+
+      </Container>
+      </Router>
+
   );
 }
 

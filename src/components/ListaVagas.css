@@ -1,0 +1,204 @@
+.lista-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.lista-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+/* Cabeçalho */
+.lista-tabela thead tr {
+    background: #1e293b;
+    color: #ffffff;
+}
+
+/* botões expandir todas e recolher todas */
+.btn-lista-acoes{
+    background-color: #222;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.5s;
+    cursor: pointer;
+    border:#ffbb33;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    margin-left: 30px;
+    padding: 0.9em 1.8em;
+    border-radius: 999px;
+    /* display: flex; */
+    
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-lista-acoes:hover {
+    color: #ffbb33;
+}
+
+.lista-tabela th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+}
+
+/* Linhas */
+.lista-tabela tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: background 0.15s;
+}
+
+.lista-tabela tbody tr:hover {
+    background: #f8fafc;
+}
+
+.lista-tabela tbody tr:last-child {
+    border-bottom: none;
+}
+
+.lista-tabela td {
+    padding: 12px 16px;
+    color: #374151;
+    vertical-align: middle;
+}
+
+.td-empresa {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.td-cargo {
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+/* Badges de status */
+.status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status--candidatado  { background: #dbeafe; color: #1d4ed8; }
+.status--em-processo  { background: #fef3c7; color: #b45309; }
+.status--entrevista   { background: #ede9fe; color: #6d28d9; }
+.status--oferta       { background: #d1fae5; color: #065f46; }
+.status--aprovado     { background: #bbf7d0; color: #14532d; }
+.status--reprovado    { background: #fee2e2; color: #991b1b; }
+
+/* Estado vazio */
+.lista-vazia {
+    text-align: center;
+    padding: 60px 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    color: #94a3b8;
+}
+
+.lista-vazia-icone {
+    display: block;
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+
+/* Coluna da seta */
+.col-seta {
+    width: 44px;
+    text-align: center;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.btn-seta {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: #64748b;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    transition: transform 0.2s, background 0.15s, color 0.15s;
+}
+
+.btn-seta:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.btn-seta--aberta {
+    transform: rotate(90deg);
+    color: #3b82f6;
+}
+
+/* Linha aberta e linha de detalhes */
+.linha-aberta {
+    background: #f8fafc;
+}
+
+.linha-detalhes td {
+    background: #f8fafc;
+    padding: 4px 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.detalhes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.detalhe--largo {
+    grid-column: 1 / -1;
+}
+
+.detalhe-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+    margin-bottom: 4px;
+}
+
+.detalhe-texto {
+    font-size: 14px;
+    color: #374151;
+    white-space: pre-wrap;   /* respeita quebras de linha digitadas */
+    word-break: break-word;
+}
+
+.detalhe a {
+    font-size: 14px;
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.detalhe a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    .detalhes-grid {
+        grid-template-columns: 1fr;
+    }
+}

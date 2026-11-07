@@ -1,0 +1,168 @@
+.stats {
+    --c-candidatado: #3b82f6;
+    --c-processo:    #f59e0b;
+    --c-entrevista:  #8b5cf6;
+    --c-oferta:      #10b981;
+    --c-aprovado:    #059669;
+    --c-reprovado:   #ef4444;
+
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cabeçalho */
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.stats-titulo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.stats-btn {
+    padding: 8px 14px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #475569;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.stats-btn:hover:not(:disabled) { background: #e2e8f0; }
+.stats-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Total */
+.stats-total {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    border-radius: 12px;
+    color: #ffffff;
+}
+
+.stats-total-label {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.stats-total-valor {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* Barra de proporção */
+.stats-barra {
+    display: flex;
+    height: 12px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: #e2e8f0;
+}
+
+.stats-barra-trecho {
+    height: 100%;
+    transition: width 0.4s ease;
+}
+
+.cor--candidatado { background: var(--c-candidatado); }
+.cor--processo    { background: var(--c-processo); }
+.cor--entrevista  { background: var(--c-entrevista); }
+.cor--oferta      { background: var(--c-oferta); }
+.cor--aprovado    { background: var(--c-aprovado); }
+.cor--reprovado   { background: var(--c-reprovado); }
+
+/* Grade de cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+}
+
+.stats-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-top-width: 4px;
+    border-radius: 12px;
+    padding: 16px;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.borda--candidatado { border-top-color: var(--c-candidatado); }
+.borda--processo    { border-top-color: var(--c-processo); }
+.borda--entrevista  { border-top-color: var(--c-entrevista); }
+.borda--oferta      { border-top-color: var(--c-oferta); }
+.borda--aprovado    { border-top-color: var(--c-aprovado); }
+.borda--reprovado   { border-top-color: var(--c-reprovado); }
+
+.stats-card-topo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.stats-card-icone  { font-size: 16px; }
+.stats-card-rotulo { font-size: 13px; font-weight: 600; color: #64748b; }
+
+.stats-card-valor {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1;
+}
+
+.stats-card-pct {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Estados de carregamento e erro */
+.stats-estado {
+    text-align: center;
+    padding: 32px 16px;
+    color: #64748b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.stats-estado--erro { color: #b91c1c; }
+
+.stats-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e2e8f0;
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: stats-giro 0.8s linear infinite;
+}
+
+@keyframes stats-giro { to { transform: rotate(360deg); } }
+
+@media (max-width: 480px) {
+    .stats { padding: 16px; }
+    .stats-total-valor { font-size: 36px; }
+}

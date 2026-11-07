@@ -1,0 +1,15 @@
+.project_container {
+    padding: 1em;
+}
+
+.title_container {
+    /* aqui alinha o texto Minhas Vagas com o botão Cadastrar vagas */
+    display: flex;
+
+
+    /* aqui empurra o botão cadastrar vagas pro canto direito da tela  */
+    justify-content: space-between;
+
+    /* aqui mexe na altura das vagas cadastradas */
+    margin-bottom: 1em;
+}
