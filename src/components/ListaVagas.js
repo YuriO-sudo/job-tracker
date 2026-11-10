@@ -1,14 +1,14 @@
 import { Fragment, useState } from 'react';
 import './ListaVagas.css'
 
-// const expandirTodas = () => setAbertas(new Set(vagas.map((v) => v.id)));
-// const recolherTodas = () => setAbertas(new Set());
 
-function ListaVagas({ vagas }) {
+    function ListaVagas({ vagas, onEditar, onExcluir }) {
     const expandirTodas = () => setAbertas(new Set(vagas.map((v) => v.id)));
     const recolherTodas = () => setAbertas(new Set());
 
     const [abertas, setAbertas] = useState(new Set());
+
+    
 
     const alternar = (id) => {
         setAbertas((prev) => {
@@ -49,6 +49,8 @@ function ListaVagas({ vagas }) {
                         <th>Salário</th>
                         <th>Status</th>
                         <th>Data</th>
+                        <th className="col-acoes">Ações</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -82,13 +84,36 @@ function ListaVagas({ vagas }) {
                                             {vaga.status}
                                         </span>
                                     </td>
+                                    {/* <td>{formatarData(vaga.dataAplicacao)}</td> */}
+
                                     <td>{formatarData(vaga.dataAplicacao)}</td>
+                                <td className="col-acoes">
+                                    <button
+                                        type="button"
+                                        className="btn-acao"
+                                        onClick={() => onEditar(vaga)}
+                                        title="Editar"
+                                        aria-label={`Editar vaga ${vaga.cargo}`}
+                                    >
+                                        ✏️
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="btn-acao btn-acao--perigo"
+                                        onClick={() => onExcluir(vaga)}
+                                        title="Excluir"
+                                        aria-label={`Excluir vaga ${vaga.cargo}`}
+                                    >
+                                        🗑️
+                                    </button>
+                                </td>
                                 </tr>
 
                                 {aberta && (
                                     <tr className="linha-detalhes">
                                         <td></td>
-                                        <td colSpan={8}>
+                                        {/* <td colSpan={8}> */}
+                                            <td colSpan={9}>
                                             <Detalhes vaga={vaga} />
                                         </td>
                                     </tr>
@@ -141,9 +166,6 @@ function Detalhes({ vaga }) {
 
         </div>
 
-        
-    
-
     );
 }
 
@@ -178,5 +200,6 @@ function formatarDataHora(data) {
 function formatarClasse(status) {
     return status.toLowerCase().replace(/\s+/g, '-');
 }
+
 
 export default ListaVagas;

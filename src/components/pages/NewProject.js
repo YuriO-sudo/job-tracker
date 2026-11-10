@@ -7,8 +7,7 @@ function NewProject() {
 
     function createPost(project) {
 
-        // fetch('http://localhost:3002/projects', {
-            fetch('http://localhost:3001/api/vagas', {
+           fetch('http://localhost:3001/api/vagas', {
                 
         method: 'POST',
         headers :{
@@ -19,11 +18,8 @@ function NewProject() {
     }) 
     .then((resp) => resp.json())
         .then((data) => {
+            navigate('/projects', {message: 'Projeto criado com sucesso!'})
 
-            // aqui mostra tudo o que o front tá enviando pra API
-            console.log('Enviando:', JSON.stringify(project))
-
-        navigate('/projects', {message: 'Projeto criado com sucesso!'})
     })
     .catch((err) => console.log(err))
 

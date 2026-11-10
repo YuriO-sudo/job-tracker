@@ -26,10 +26,10 @@
     transition: 0.5s;
     cursor: pointer;
     border:#ffbb33;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-right: 30px;
-    margin-left: 30px;
+    /* margin-top: 20px; */
+    margin-bottom: 7px;
+    margin-right: 20px;
+    margin-left: 20px;
     padding: 0.9em 1.8em;
     border-radius: 999px;
     /* display: flex; */
@@ -202,3 +202,23 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* daqui pra baixo são os botões de editar e excluir registros */
+.col-acoes {
+    width: 96px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.btn-acao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+.btn-acao:hover        { background: #e2e8f0; }
+.btn-acao--perigo:hover { background: #fee2e2; }

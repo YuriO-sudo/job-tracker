@@ -10,7 +10,7 @@ function ProjectForm ({ handleSubmit, btnText, projectData} ) {
     const [project, setProject] = useState(projectData || {})
 
     useEffect ( () => {
-        // fetch('http://localhost:3002/status', {
+        
             fetch('http://localhost:3000/status', {
         method: 'GET',
         headers :{
@@ -30,18 +30,10 @@ function ProjectForm ({ handleSubmit, btnText, projectData} ) {
 
     function handleChange(e) {
         setProject({ ...project, [e.target.name]: e.target.value})
-        // console.log('name =>:', e.target.name, '| value:', e.target.value)
         console.log('salario => :', e.target.salario_min, '| value:', e.target.value)
     }
 
-    // function handleCategory(e) {
-    //     setProject({ ...project, status: {
-    //         id: e.target.value,
-    //         name: e.target.options[e.target.selectedIndex].text,
-    //     }
-    //     })
-    // }
-
+ 
     return (
         <form onSubmit={submit} className={styles.form}>
                 <Input 
