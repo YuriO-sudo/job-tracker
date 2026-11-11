@@ -1,21 +1,56 @@
 .form_control {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1em;
+    gap: 6px;
+    margin-bottom: 18px;
 }
 
 .form_control label {
-    margin-bottom: .6em;
-    font-weight: bold;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    /* text-transform: capitalize;    */
+    /* "modalidade da vaga" vira "Modalidade da vaga" */
 }
 
 .form_control input {
-    padding: .7em;
-    border-radius: 0;
-    border: none;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #ffffff;
+    font-size: 14px;
+    font-family: inherit;
+    color: #1e293b;
+    box-sizing: border-box;
+    transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .form_control input::placeholder {
-    color: #7b7b7b;
+    color: #94a3b8;
 }
 
+.form_control input:hover {
+    border-color: #cbd5e1;
+}
+
+.form_control input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+}
+
+.form_control input:disabled {
+    background: #f1f5f9;
+    cursor: not-allowed;
+}
+
+/* .linha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 560px) {
+    .linha { grid-template-columns: 1fr; }
+} */

@@ -106,17 +106,20 @@
 .modal-btn {
     padding: 10px 18px;
     border: none;
-    border-radius: 8px;
+    border-radius: 999px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: opacity 0.15s;
 }
+.modal-btn:hover{
+    color: #ffbb33;
+}
 
-.modal-btn:hover:not(:disabled) { opacity: 0.88; }
+/* .modal-btn:hover:not(:disabled) { opacity: 0.88; } */
 .modal-btn:disabled { opacity: 0.55; cursor: not-allowed; }
 
-.modal-btn--primario   { background: #3b82f6; color: #fff; }
+.modal-btn--primario   { background: #222; color: #FFF; }
 .modal-btn--secundario { background: #e2e8f0; color: #374151; }
 .modal-btn--perigo     { background: #ef4444; color: #fff; }
 

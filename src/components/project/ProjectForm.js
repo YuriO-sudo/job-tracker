@@ -30,7 +30,7 @@ function ProjectForm ({ handleSubmit, btnText, projectData} ) {
 
     function handleChange(e) {
         setProject({ ...project, [e.target.name]: e.target.value})
-        console.log('salario => :', e.target.salario_min, '| value:', e.target.value)
+        // console.log('salario => :', e.target.salario_min, '| value:', e.target.value)
     }
 
  

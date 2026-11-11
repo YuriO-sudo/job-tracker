@@ -14,7 +14,6 @@ function paraFormulario(vaga) {
         nivel:         vaga.nivel         ?? 'Pleno',
         status:        vaga.status        ?? 'Candidatado',
         salarioMin:    vaga.salarioMin    ?? '',
-        salarioMax:    vaga.salarioMax    ?? '',
         dataAplicacao: vaga.dataAplicacao ? String(vaga.dataAplicacao).slice(0, 10) : '',
         link:          vaga.link          ?? '',
         descricao:     vaga.descricao     ?? '',
@@ -22,7 +21,7 @@ function paraFormulario(vaga) {
     };
 }
 
-const paraNumero = (v) => (v === '' || v == null ? null : Number(v));
+// const paraNumero = (v) => (v === '' || v == null ? null : Number(v));
 
 function ModalEditarVaga({ vaga, onSalvar, onCancelar }) {
     const [form,      setForm]      = useState(() => paraFormulario(vaga));
@@ -47,13 +46,7 @@ function ModalEditarVaga({ vaga, onSalvar, onCancelar }) {
         if (!form.empresa.trim()) e.empresa = 'Obrigatório';
         if (!form.cargo.trim())   e.cargo   = 'Obrigatório';
 
-        const min = paraNumero(form.salarioMin);
-        const max = paraNumero(form.salarioMax);
-        if (Number.isNaN(min)) e.salarioMin = 'Número inválido';
-        if (Number.isNaN(max)) e.salarioMax = 'Número inválido';
-        if (min != null && max != null && min > max) {
-            e.salarioMax = 'Deve ser maior que o mínimo';
-        }
+       
 
         setErrosCampo(e);
         return Object.keys(e).length === 0;
@@ -71,8 +64,7 @@ function ModalEditarVaga({ vaga, onSalvar, onCancelar }) {
             modalidade:    form.modalidade,
             nivel:         form.nivel,
             status:        form.status,
-            salarioMin:    paraNumero(form.salarioMin),
-            salarioMax:    paraNumero(form.salarioMax),
+            salarioMin:    form.salarioMin,
             dataAplicacao: form.dataAplicacao      || null,
             link:          form.link.trim()        || null,
             descricao:     form.descricao.trim()   || null,
@@ -145,8 +137,7 @@ function ModalEditarVaga({ vaga, onSalvar, onCancelar }) {
                         </div>
 
                         <div className="campos-linha">
-                            {campo('salarioMin', 'Salário mínimo (R$)', { type: 'number', min: 0, step: '0.01' })}
-                            {campo('salarioMax', 'Salário máximo (R$)', { type: 'number', min: 0, step: '0.01' })}
+                            {campo('salarioMin', 'Salário mínimo (R$)', { type: 'text' })}
                         </div>
 
                         {campo('link', 'Link da vaga', { type: 'url', placeholder: 'https://...' })}
